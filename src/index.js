@@ -29,7 +29,7 @@ const timer = {
     intervalId:null,
     start() {
        const targetDate =  new Date('Jul 17, 2021')
-        setInterval(() => {
+        this.intervalId = setInterval(() => {
             
             //console.log(targetDate)
             const currentTime = Date.now();
@@ -39,10 +39,11 @@ const timer = {
         }, 1000)
     },
     stop() {
-        clearInterval(this.intervalId);
-        this.intervalId = null;
-        updateClockFace(0);
-  }  
+        if (updateClockFace ===0) {
+            clearInterval(this.intervalId);
+            this.intervalId = null;
+        }
+    },  
 }
 timer.start();
 
