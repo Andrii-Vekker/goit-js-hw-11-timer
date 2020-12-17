@@ -36,14 +36,16 @@ const timer = {
             //console.log(currentTime);
             const time = targetDate - currentTime ;
             updateClockFace(time);
+            if (
+        refs.daysRef.textContent === "000" &&
+        refs.hoursRef.textContent === "00" &&
+        refs.minutesRef.textContent === "00" &&
+        refs.secondsRef.textContent === "00"
+      ) {
+        clearInterval(this.intervalId);
+      }
         }, 1000)
     },
-    stop() {
-        if (updateClockFace ===0) {
-            clearInterval(this.intervalId);
-            this.intervalId = null;
-        }
-    },  
 }
 timer.start();
 
